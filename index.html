@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的备忘录</title>
+    <style>
+        #content {
+            margin-left:100px;
+            margin-top: 50px;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content" ng-app="myApp" ng-controller="myCtrl">
+    <h1>我的备忘录</h1>
+    <p>
+        <textarea ng-model="myText" cols="40" rows="10"></textarea>
+        &nbsp;&nbsp;
+        <button ng-click="addReminder()">新增备忘录</button>
+    </p>
+
+    <div id="reminders" ng-repeat="x in remindersArr">
+        <p><input type="checkbox" ng-model="x.bool"/>{{x.text}}</p>
+    </div>
+
+    <br/>
+    <button ng-click="deleteReminder()">删除备忘录</button>
+    <br/>
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
